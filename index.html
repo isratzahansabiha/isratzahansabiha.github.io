@@ -207,21 +207,48 @@ footer{background:#0a1422;padding:1.6rem 2.5rem;display:flex;align-items:center;
 
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
-  nav{padding:0 1.2rem}.nav-links{display:none}
-  section{padding:3.5rem 1.2rem}
-  #hero{padding:80px 1.2rem 4rem}
-  .hero-inner{grid-template-columns:1fr;gap:2.5rem}
-  .hero-photo{width:170px;height:170px;justify-self:start;order:-1}
-  .extra-grid,.contact-grid{grid-template-columns:1fr;gap:2.5rem}
-  .contact-cards{max-width:100%}
-  .about-stats{grid-template-columns:1fr 1fr}
+  nav{padding:0 1rem}
+  .nav-links{display:none}
+  section{padding:3rem 1rem}
+  #hero{padding:72px 1rem 3rem}
+
+  /* Hero: keep name left, photo right — same as desktop */
+  .hero-inner{grid-template-columns:1fr auto!important;gap:1.5rem!important;align-items:center}
+  .hero-photo{width:130px!important;height:130px!important;order:0}
+  .hero-name{font-size:clamp(2rem,8vw,3.5rem)}
+
+  /* About: single column, stats 2x2 */
+  .about-stats{grid-template-columns:1fr 1fr!important;gap:0.75rem}
+
+  /* Skills: 2 columns */
+  .skills-grid{grid-template-columns:1fr 1fr!important;gap:0.75rem}
+
+  /* Contact: 2 columns, full width */
+  .contact-cards{grid-template-columns:1fr 1fr!important;max-width:100%!important;gap:0.75rem}
+
+  /* Cert: 2 columns */
+  .cert-grid{grid-template-columns:1fr 1fr!important;gap:0.75rem}
+
+  /* Extra / language */
+  .extra-grid{grid-template-columns:1fr 1fr!important;gap:1.5rem}
+  .contact-grid{grid-template-columns:1fr}
+
   .form-row{grid-template-columns:1fr}
   .exp-head{flex-direction:column}
 }
-@media(max-width:600px){
-  .skills-grid,.cert-grid{grid-template-columns:1fr}
-  .comp-grid,.about-stats{grid-template-columns:1fr 1fr}
-  .contact-cards{grid-template-columns:1fr}
+
+@media(max-width:480px){
+  /* On very small screens keep 2 columns but shrink padding */
+  .about-stats{grid-template-columns:1fr 1fr!important;gap:0.5rem}
+  .skills-grid{grid-template-columns:1fr 1fr!important;gap:0.5rem}
+  .contact-cards{grid-template-columns:1fr 1fr!important;gap:0.5rem}
+  .cert-grid{grid-template-columns:1fr 1fr!important;gap:0.5rem}
+
+  /* Shrink card padding on tiny screens */
+  .stat-card,.contact-card,.skill-cat,.cert-card{padding:0.9rem 0.75rem!important}
+  .stat-number{font-size:1.6rem!important}
+  .contact-val{font-size:0.78rem!important}
+  .skill-tag{font-size:0.65rem!important;padding:0.2rem 0.45rem!important}
 }
 
 
@@ -237,7 +264,7 @@ body.dark-mode {
   --gold-pale:rgba(196,154,60,0.15);
   color:var(--text);
 }
-body.dark-mode nav{background:rgba(13,21,32,0.97);border-color:#1e3050;}
+body.dark-mode nav{background:#1a1a2e!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;border-color:#2a3a55!important;}
 body.dark-mode .stat-card,body.dark-mode .skill-cat,body.dark-mode .exp-card,
 body.dark-mode .edu-card,body.dark-mode .cert-card,body.dark-mode .comp-pill,
 body.dark-mode .lang-item,body.dark-mode .int-tag,body.dark-mode .contact-card {
@@ -266,9 +293,10 @@ body.dark-mode .footer-brand,body.dark-mode .footer-copy {color:rgba(180,200,220
 body.dark-mode .badge {background:rgba(196,154,60,0.18);color:#d4a84a;border-color:rgba(196,154,60,0.3);}
 body.dark-mode .timeline::before {background:linear-gradient(180deg,var(--teal),rgba(62,201,174,0.3));}
 body.dark-mode .tl-dot {background:var(--teal);border-color:var(--off);}
-body.dark-mode .nav-links a {color:var(--mid);}
-body.dark-mode .nav-links a:hover {color:var(--teal-light);background:var(--teal-pale);}
-body.dark-mode .nav-logo {color:var(--text);}
+body.dark-mode nav{background:#1a1a2e!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;border-color:#2a3a55!important;}
+body.dark-mode .nav-links a {color:#ffffff!important;}
+body.dark-mode .nav-links a:hover {color:var(--teal-light)!important;background:var(--teal-pale);}
+body.dark-mode .nav-logo {color:#ffffff!important;}
 body.dark-mode .exp-period {background:var(--off);border-color:var(--border);color:var(--muted);}
 body.dark-mode .section-label {color:var(--teal-light);}
 body.dark-mode .section-label::before {background:var(--teal-light);}
